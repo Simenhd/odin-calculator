@@ -1,54 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
-    
-    <link rel="stylesheet" href="./styles.css">
+
+    <link rel="stylesheet" href="./styles.css" />
     <script defer src="./calculator.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="calculator-grid">
-            <div class="output">
-                <div class="top-display">
-                  <div id="last-firstOperand"></div>
-                  <div id="last-operator"></div>
-                  <div id="last-secondOperand"></div>
-                </div>
-                <div class="bottom-display">
-                  <div id="current-firstOperand"></div>
-                  <div id="current-operator"></div>
-                  <div id="current-secondOperand"></div>
-                  <div id="result"></div>
-                </div>
-              </div>              
-                <button class="span-two" id="AC" data-operator="clear">AC</button>
-                <button data-operator="delete">DEL</button>
-                <button data-operator="modulus">%</button>
-                <button data-operand="1">1</button>
-                <button data-operand="2">2</button>
-                <button data-operand="3">3</button>
-                <button data-operator="multiply">x</button>
-                <button data-operand="4">4</button>
-                <button data-operand="5">5</button>
-                <button data-operand="6">6</button>
-                <button data-operator="minus">-</button>
-                <button data-operand="7">7</button>
-                <button data-operand="8">8</button>
-                <button data-operand="9">9</button>
-                <button data-operator="plus">+</button>
-                <button class="span-two" id="0" data-operand="0">0</button>
-                <button data-operator="comma-seperator">.</button>
-                <button data-operator="equals">=</button>
-            </div>
+      <div class="calculator-grid">
+        <div class="output">
+          <div class="top-display">
+            <div id="last-firstOperand"></div>
+            <div id="last-operator"></div>
+            <div id="last-secondOperand"></div>
+          </div>
+          <div class="bottom-display">
+            <div id="current-firstOperand"></div>
+            <div id="current-operator"></div>
+            <div id="current-secondOperand"></div>
+            <div id="result"></div>
+          </div>
+        </div>
+        <button class="span-two" id="AC" data-operator="clear">AC</button>
+        <button data-operator="delete">DEL</button>
+        <button data-operator="modulus">%</button>
+        <button data-operand="1">1</button>
+        <button data-operand="2">2</button>
+        <button data-operand="3">3</button>
+        <button data-operator="multiply">x</button>
+        <button data-operand="4">4</button>
+        <button data-operand="5">5</button>
+        <button data-operand="6">6</button>
+        <button data-operator="minus">-</button>
+        <button data-operand="7">7</button>
+        <button data-operand="8">8</button>
+        <button data-operand="9">9</button>
+        <button data-operator="plus">+</button>
+        <button class="span-two" id="0" data-operand="0">0</button>
+        <button data-operator="comma-seperator">.</button>
+        <button data-operator="equals">=</button>
+      </div>
 
-            <div class="data-container">
-                <div class="data-table">
-                </div>
-            </div>
-</div>
-
-</body>
+      <div class="data-container">
+        <div class="data-table"></div>
+      </div>
+    </div>
+  </body>
 </html>

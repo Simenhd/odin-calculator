@@ -136,14 +136,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function appendTable(firstOperand, secondOperand, operator, result) {
 
-            
 
-            const rowHTML = `
+
+        const rowHTML = `
               <div class="data-row">
                 <div class="data-cell">${firstOperand} ${operatorSymbols[operator]} ${secondOperand} = ${result}</div>  
               </div>
             `;
 
-            datatable.insertAdjacentHTML('afterend', rowHTML);
+        datatable.insertAdjacentHTML('afterend', rowHTML);
     }
 });
