@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
         result: "",
     };
 
+    // Init variable to hold count of records in historic table
+    let dataTableCount = 0
+
     // Update the UI based on the current state
     function updateDisplay() {
         currentDisplay.firstOperand.textContent = state.firstOperand;
@@ -72,7 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
     equalsButton.addEventListener("click", (event) => {
         state.result = operate(state.operator, state.firstOperand, state.secondOperand);
 
-        appendTable(state.firstOperand, state.secondOperand, state.operator, state.result);
+        dataTableCount += 1
+        appendTable(state.firstOperand, state.secondOperand, state.operator, state.result, dataTableCount);
 
         // Reset the current operation (keeping the result visible)
         state.firstOperand = state.result;
@@ -134,16 +138,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function appendTable(firstOperand, secondOperand, operator, result) {
-
-
-
+    function appendTable(firstOperand, secondOperand, operator, result, count) {
         const rowHTML = `
               <div class="data-row">
+                <div class="data-id">${count}</div>
                 <div class="data-cell">${firstOperand} ${operatorSymbols[operator]} ${secondOperand} = ${result}</div>  
               </div>
             `;
-
-        datatable.insertAdjacentHTML('afterend', rowHTML);
+        datatable.insertAdjacentHTML('beforeend', rowHTML);
     }
 });
