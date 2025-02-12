@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
         secondOperand: document.getElementById("current-secondOperand")
     };
 
+    const datatable = document.querySelector('.data-table')
+
     // Mapping of operator identifiers to display symbols
     const operatorSymbols = {
         plus: "+",
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         firstOperand: "",
         operator: "",
         secondOperand: "",
+        result: "",
     };
 
     // Update the UI based on the current state
@@ -68,6 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // When the equals button is clicked, perform the operation
     equalsButton.addEventListener("click", (event) => {
         state.result = operate(state.operator, state.firstOperand, state.secondOperand);
+
+        appendTable(state.firstOperand, state.secondOperand, state.operator, state.result);
 
         // Reset the current operation (keeping the result visible)
         state.firstOperand = state.result;
@@ -126,5 +131,19 @@ document.addEventListener("DOMContentLoaded", () => {
             state.secondOperand = state.secondOperand.slice(0, -1);
         }
         updateDisplay(); // Refresh the display after deletion
+    }
+
+
+    function appendTable(firstOperand, secondOperand, operator, result) {
+
+            
+
+            const rowHTML = `
+              <div class="data-row">
+                <div class="data-cell">${firstOperand} ${operatorSymbols[operator]} ${secondOperand} = ${result}</div>  
+              </div>
+            `;
+
+            datatable.insertAdjacentHTML('afterend', rowHTML);
     }
 });
