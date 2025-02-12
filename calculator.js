@@ -13,14 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         secondOperand: document.getElementById("current-secondOperand")
     };
 
-    // Disable for now
-    //const lastDisplay = {
-    //    firstOperand: document.getElementById("last-firstOperand"),
-    //    operator: document.getElementById("last-operator"),
-    //    secondOperand: document.getElementById("last-secondOperand")
-    //  };
-
-
     // Mapping of operator identifiers to display symbols
     const operatorSymbols = {
         plus: "+",
@@ -49,12 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         state.operator = "";
         state.secondOperand = "";
         updateDisplay();
-
-        // Disable for now
-        // Optionally clear the last operation display
-        // lastDisplay.firstOperand.textContent = "";
-        // lastDisplay.operator.textContent = "";
-        // lastDisplay.secondOperand.textContent = "";
     }
 
     // Add event listeners for operand buttons
@@ -83,12 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     equalsButton.addEventListener("click", (event) => {
         state.result = operate(state.operator, state.firstOperand, state.secondOperand);
 
-        // Disable for now
-        // Move the operands and operator to the last operation display
-        //* lastDisplay.firstOperand.textContent = state.firstOperand;
-        //* lastDisplay.operator.textContent = operatorSymbols[state.operator] || "";
-        //* lastDisplay.secondOperand.textContent = state.secondOperand;
-
         // Reset the current operation (keeping the result visible)
         state.firstOperand = state.result;
         state.operator = "";
@@ -98,6 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Clear the calculator when the clear button is clicked
     clearButton.addEventListener("click", clearCalculator);
+
+    // Call delete function when delete button is clicked
     deleteButton.addEventListener("click", del);
 
     // Arithmetic functions (using parseFloat for consistency)
@@ -134,12 +116,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
+    // Delete function 
     function del() {
+        // If the operator variable is blank delete from firstOperand - else delete from secondOperand
         if (state.operator === "") {
-            // Remove the last character from firstOperand
             state.firstOperand = state.firstOperand.slice(0, -1);
         } else {
-            // Remove the last character from secondOperand
             state.secondOperand = state.secondOperand.slice(0, -1);
         }
         updateDisplay(); // Refresh the display after deletion
